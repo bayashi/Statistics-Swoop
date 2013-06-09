@@ -16,7 +16,7 @@ use Statistics::Swoop;
     is $ss->min,     undef, 'min';
     is $ss->sum,     undef, 'sum';
     is $ss->average, undef, 'average';
-    is $ss->ave,     undef, 'ave';
+    is $ss->avg,     undef, 'avg';
     is $ss->range,   undef, 'range';
 }
 
@@ -31,7 +31,7 @@ use Statistics::Swoop;
     is $ss->min,     0, 'min';
     is $ss->sum,     0, 'sum';
     is $ss->average, 0, 'average';
-    is $ss->ave,     0, 'ave';
+    is $ss->avg,     0, 'avg';
     is $ss->range,   0, 'range';
 }
 
@@ -46,7 +46,7 @@ use Statistics::Swoop;
     is $ss->min,     1, 'min';
     is $ss->sum,     1, 'sum';
     is $ss->average, 1, 'average';
-    is $ss->ave,     1, 'ave';
+    is $ss->avg,     1, 'avg';
     is $ss->range,   1, 'range';
 }
 
@@ -61,7 +61,7 @@ use Statistics::Swoop;
     is $ss->min,     1,   'min';
     is $ss->sum,     5,   'sum';
     is $ss->average, 2.5, 'average';
-    is $ss->ave,     2.5, 'ave';
+    is $ss->avg,     2.5, 'avg';
     is $ss->range,   3,   'range';
 }
 
@@ -73,7 +73,7 @@ use Statistics::Swoop;
     is $ss->max,   5,   'max';
     is $ss->min,   4,   'min';
     is $ss->sum,   9,   'sum';
-    is $ss->ave,   4.5, 'ave';
+    is $ss->avg,   4.5, 'avg';
     is $ss->range, 1,   'range';
 }
 
@@ -86,7 +86,7 @@ use Statistics::Swoop;
     is $ss->min,   1, 'min';
     is $ss->sum,   7, 'sum';
     is $ss->range, 3, 'range';
-    like $ss->ave, qr/^2\.33\d+/, 'ave';
+    like $ss->avg, qr/^2\.33\d+/, 'avg';
 }
 
 {
@@ -97,7 +97,7 @@ use Statistics::Swoop;
     is $ss->max,   10,  'max';
     is $ss->min,   1,   'min';
     is $ss->sum,   55,  'sum';
-    is $ss->ave,   5.5, 'ave';
+    is $ss->avg,   5.5, 'avg';
     is $ss->range, 9,   'range';
 }
 

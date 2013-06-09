@@ -13,7 +13,7 @@ use Statistics::Swoop;
         min   => 1,
         range => 4,
         sum   => 15,
-        ave   => 3,
+        avg   => 3,
     };
     is_deeply $ss->result, $expect, 'result';
 }

@@ -4,7 +4,7 @@ use warnings;
 use Carp qw/croak/;
 use Class::Accessor::Lite (
     rw  => [qw/list/],
-    ro  => [qw/count max min range sum ave/],
+    ro  => [qw/count max min range sum avg/],
 );
 
 our $VERSION = '0.01';
@@ -34,7 +34,7 @@ sub _calc {
     my $max = $self->list->[0];
     my $min = $self->list->[0];
     my $range;
-    my $ave;
+    my $avg;
 
     for my $i (@{$self->list}) {
         $sum += $i;
@@ -44,11 +44,11 @@ sub _calc {
 
     if ($self->count == 1) {
         $self->{range} = $max;
-        $self->{ave}   = $max;
+        $self->{avg}   = $max;
     }
     elsif ($self->count > 1) {
         $self->{range} = $max - $min;
-        $self->{ave}   = $sum / $self->count;
+        $self->{avg}   = $sum / $self->count;
     }
     $self->{sum} = $sum;
     $self->{max} = $max;
@@ -59,7 +59,7 @@ sub _calc {
 
 sub maximum { $_[0]->max }
 sub minimum { $_[0]->min }
-sub average { $_[0]->ave }
+sub average { $_[0]->avg }
 
 sub result {
     my $self = shift;
@@ -70,7 +70,7 @@ sub result {
         min   => $self->min,
         range => $self->range,
         sum   => $self->sum,
-        ave   => $self->ave,
+        avg   => $self->avg,
     };
 }
 
@@ -93,7 +93,7 @@ Statistics::Swoop - getting basic stats of a list in one fell swoop
     print $ss->max;   # 10
     print $ss->min;   # 1
     print $ss->sum;   # 55
-    print $ss->ave;   # 5.5
+    print $ss->avg;   # 5.5
     print $ss->range; # 9
 
 
@@ -124,7 +124,7 @@ getting the range value in $list
 
 getting the sum in $list
 
-=head2 ave, average
+=head2 avg, average
 
 getting the average in $list
 
