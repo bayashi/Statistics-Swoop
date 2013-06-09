@@ -61,6 +61,19 @@ sub maximum { $_[0]->max }
 sub minimum { $_[0]->min }
 sub average { $_[0]->ave }
 
+sub result {
+    my $self = shift;
+
+    return +{
+        count => $self->count,
+        max   => $self->max,
+        min   => $self->min,
+        range => $self->range,
+        sum   => $self->sum,
+        ave   => $self->ave,
+    };
+}
+
 1;
 
 __END__
@@ -118,6 +131,10 @@ getting the average in $list
 =head2 count
 
 getting the count of element
+
+=head2 result
+
+getting the all results as hash
 
 
 =head1 BENCHMARK
