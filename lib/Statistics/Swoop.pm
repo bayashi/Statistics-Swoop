@@ -19,12 +19,8 @@ sub new {
         count => scalar @{$list},
     } => $class;
 
-    if ($self->count) {
-        return $self->_calc;
-    }
-    else {
-        return $self;
-    }
+    $self->_calc if $self->count;
+    return $self;
 }
 
 sub _calc {
@@ -53,8 +49,6 @@ sub _calc {
     $self->{sum} = $sum;
     $self->{max} = $max;
     $self->{min} = $min;
-
-    $self;
 }
 
 sub maximum { $_[0]->max }
