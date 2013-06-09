@@ -2,15 +2,64 @@ package Statistics::Swoop;
 use strict;
 use warnings;
 use Carp qw/croak/;
+use Class::Accessor::Lite (
+    rw  => [qw/list/],
+    ro  => [qw/count max min range sum ave/],
+);
 
 our $VERSION = '0.01';
 
 sub new {
-    my $class = shift;
-    my $args  = shift || +{};
+    my ($class, $list) = @_;
 
-    bless $args, $class;
+    croak "first arg is required as array ref" unless ref($list) eq 'ARRAY'; 
+
+    my $self = bless +{
+        list  => $list,
+        count => scalar @{$list},
+    } => $class;
+
+    if ($self->count) {
+        return $self->_calc;
+    }
+    else {
+        return $self;
+    }
 }
+
+sub _calc {
+    my $self = shift;
+
+    my $sum;
+    my $max = $self->list->[0];
+    my $min = $self->list->[0];
+    my $range;
+    my $ave;
+
+    for my $i (@{$self->list}) {
+        $sum += $i;
+        $max = $i if $max < $i;
+        $min = $i if $min > $i;
+    }
+
+    if ($self->count == 1) {
+        $self->{range} = $max;
+        $self->{ave}   = $max;
+    }
+    elsif ($self->count > 1) {
+        $self->{range} = $max - $min;
+        $self->{ave}   = $sum / $self->count;
+    }
+    $self->{sum} = $sum;
+    $self->{max} = $max;
+    $self->{min} = $min;
+
+    $self;
+}
+
+sub maximum { $_[0]->max }
+sub minimum { $_[0]->min }
+sub average { $_[0]->ave }
 
 1;
 
@@ -18,17 +67,57 @@ __END__
 
 =head1 NAME
 
-Statistics::Swoop - one line description
+Statistics::Swoop - getting basic stats of a list in one fell swoop
 
 
 =head1 SYNOPSIS
 
     use Statistics::Swoop;
 
+    my @list = (qw/1 2 3 4 5 6 7 8 9 10/);
+    my $ss = Statistics::Swoop->new(\@list);
+
+    print $ss->max;   # 10
+    print $ss->min;   # 1
+    print $ss->sum;   # 55
+    print $ss->ave;   # 5.5
+    print $ss->range; # 9
+
 
 =head1 DESCRIPTION
 
-Statistics::Swoop is
+Usually, If we calculate some stats from list, we want maximum/minimum/sum/average/range. So Statistics::Swoop calculates them at only one loop.
+
+
+=head1 METHODS
+
+=head2 new($list)
+
+constractor
+
+=head2 max, maximum
+
+getting the maximum value in $list
+
+=head2 min, minimum
+
+getting the minimum value in $list
+
+=head2 range
+
+getting the range value in $list
+
+=head2 sum
+
+getting the sum in $list
+
+=head2 ave, average
+
+getting the average in $list
+
+=head2 count
+
+getting the count of element
 
 
 =head1 REPOSITORY
@@ -45,8 +134,6 @@ Dai Okabayashi E<lt>bayashi@cpan.orgE<gt>
 
 
 =head1 SEE ALSO
-
-L<Other::Module>
 
 
 =head1 LICENSE

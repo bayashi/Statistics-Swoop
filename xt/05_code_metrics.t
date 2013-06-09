@@ -1,6 +1,6 @@
 use Test::Perl::Metrics::Lite (
-    -mccabe_complexity => 9,
-    -loc => 85,
+    -mccabe_complexity => 12,
+    -loc => 50,
     -except_dir  => [
     ],
     -except_file => [

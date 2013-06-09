@@ -16,6 +16,7 @@ my $builder = Module::Build->new(
     requires => {
         'perl' => '5.008001',
         'Carp' => 0,
+        'Class::Accessor::Lite' => 0,
     },
     add_to_cleanup      => [ 'Statistics-Swoop-*' ],
     meta_merge     => {
