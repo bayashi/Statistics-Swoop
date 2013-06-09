@@ -120,6 +120,24 @@ getting the average in $list
 getting the count of element
 
 
+=head1 BENCHMARK
+
+See the source in this modules directory(demos/*.pl).
+
+=head2 Statistics::Swoop vs Statistics::Lite
+
+    $ perl demos/benchmark.pl
+    Benchmark: running Lite, Swoop for at least 1 CPU seconds...
+          Lite:  1 wallclock secs ( 1.08 usr +  0.00 sys =  1.08 CPU) @ 103.70/s (n=112)
+         Swoop:  1 wallclock secs ( 1.09 usr +  0.00 sys =  1.09 CPU) @ 236.70/s (n=258)
+           Rate  Lite Swoop
+    Lite  104/s    --  -56%
+    Swoop 237/s  128%    --
+
+C<Statistics::Swoop> is 110-130% faster than L<Statistics::Lite>.
+Actually, when you calculate very small list, then L<Statistics::Lite> is bit faster than C<Statistics::Swoop>.
+
+
 =head1 REPOSITORY
 
 Statistics::Swoop is hosted on github
