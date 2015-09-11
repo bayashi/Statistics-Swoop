@@ -32,3 +32,14 @@ use Benchmarks sub {
         'Lite'  => $lite,
     };
 };
+
+=pod
+
+    Benchmark: running Lite, Swoop for at least 1 CPU seconds...
+          Lite: 1.08572 wallclock secs ( 1.08 usr +  0.00 sys =  1.08 CPU) @ 111.11/s (n=120)
+         Swoop: 1.06509 wallclock secs ( 1.06 usr +  0.00 sys =  1.06 CPU) @ 316.04/s (n=335)
+           Rate  Lite Swoop
+    Lite  111/s    --  -65%
+    Swoop 316/s  184%    --
+
+=cut
