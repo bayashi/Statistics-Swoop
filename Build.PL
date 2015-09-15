@@ -18,6 +18,12 @@ my $builder = Module::Build->new(
         'Carp' => 0,
         'Class::Accessor::Lite' => 0,
     },
+    recommends => {
+        'Getopt::Long' => '2.42',
+        'Pod::Usage' => 0,
+        'Text::ASCIITable' => 0,
+    },
+    script_files        => [ 'script/swoop' ],
     add_to_cleanup      => [ 'Statistics-Swoop-*' ],
     meta_merge     => {
       resources => {
