@@ -40,7 +40,7 @@
    "provides" : {
       "Statistics::Swoop" : {
          "file" : "lib/Statistics/Swoop.pm",
-         "version" : "0.02"
+         "version" : "0.03"
       }
    },
    "release_status" : "stable",
@@ -52,5 +52,5 @@
          "url" : "http://github.com/bayashi/Statistics-Swoop"
       }
    },
-   "version" : "0.02"
+   "version" : "0.03"
 }

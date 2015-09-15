@@ -7,7 +7,7 @@ use Class::Accessor::Lite (
     ro  => [qw/count max min range sum avg/],
 );
 
-our $VERSION = '0.02';
+our $VERSION = '0.03';
 
 sub new {
     my ($class, $list) = @_;

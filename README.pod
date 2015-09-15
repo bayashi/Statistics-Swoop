@@ -5,7 +5,7 @@ This is Perl module B<Statistics::Swoop>.
 
 =begin html
 
-<a href="http://travis-ci.org/bayashi/Statistics-Swoop"><img src="https://secure.travis-ci.org/bayashi/Statistics-Swoop.png"/></a> <a href="https://coveralls.io/r/bayashi/Statistics-Swoop"><img src="https://coveralls.io/repos/bayashi/Statistics-Swoop/badge.png?branch=master"/></a>
+<a href="http://travis-ci.org/bayashi/Statistics-Swoop"><img src="https://secure.travis-ci.org/bayashi/Statistics-Swoop.png?_t=1442276511"/></a> <a href="https://coveralls.io/r/bayashi/Statistics-Swoop"><img src="https://coveralls.io/repos/bayashi/Statistics-Swoop/badge.png?_t=1442276511&branch=master"/></a>
 
 =end html
 
@@ -25,6 +25,16 @@ Download it, unpack it, then build it as per the usual:
 Then install it:
 
     % make install
+
+=head2 Downloading the standalone executable
+
+You can also copy the standalone executable to whatever location you'd like.
+
+    % cd ~/bin
+    % curl -o swoop -L http://j.mp/app-swoop
+    % chmod +x swoop
+
+NOTE: edit shebang if you don't have /usr/bin/env
 
 
 =head1 DOCUMENTATION
